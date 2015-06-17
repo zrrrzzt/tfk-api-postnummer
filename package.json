@@ -1,0 +1,47 @@
+{
+  "name": "tfk-api-postnummer",
+  "version": "1.0.0",
+  "description": "zipcode API for tfk",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no",
+    "url": "https://github.com/zrrrzzt"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "scripts": {
+    "setup": "npm install && node setup.js",
+    "start": "node standalone.js",
+    "test": "mocha --reporter spec test/*.js",
+    "import": "mongoimport -d tfk -c zipcodes  --type csv --headerline --file test/data/zipcodes.csv"
+  },
+  "keywords": [
+    "Telemark fylkeskommune",
+    "tfk",
+    "API",
+    "hapi",
+    "zipcodes"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/zrrrzzt/tfk-api-postnummer.git"
+  },
+  "bugs": {
+    "url": "http://github.com/zrrrzzt/tfk-api-postnummer/issues"
+  },
+  "devDependencies": {
+    "hapi": "^8.4.0",
+    "jscs": "^1.12.0",
+    "mocha": "^2.2.1",
+    "supertest": "^0.15.0"
+  },
+  "dependencies": {
+    "mongojs": "^0.18.2",
+    "xmlify": "^1.0.0",
+    "wreck": "^5.3.0"
+  }
+}

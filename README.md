@@ -1,6 +1,10 @@
 # tfk-api-postnummer
 zipcodes API for tfk.
 
+This solutions contains all zipcodes for Norway.
+
+Datasource is the [zipcode registry]('http://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/_attachment/615732?_download=true&_ts=148c63b0dc0') from [Bring]('http://www.bring.no/').
+
 Use it as standalone server or hapi-plugin.
 
 ## Installation
@@ -35,7 +39,7 @@ $ npm run start
 
 As hapi plugin
 
-```jaascript
+```javascript
 'use strict';
 
 var Hapi = require('hapi');

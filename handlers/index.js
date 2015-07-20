@@ -7,8 +7,8 @@ var db = mongojs(config.DB);
 var zipcodes = db.collection('zipcodes');
 
 function getPostnummer(request, reply) {
-  var skipNum = request.query.skip ? parseInt(request.query.skip, 10):0;
-  var limitNum = request.query.limit ? parseInt(request.query.limit, 10):20;
+  var skipNum = request.query.skip ? parseInt(request.query.skip, 10) : 0;
+  var limitNum = request.query.limit ? parseInt(request.query.limit, 10) : 20;
   zipcodes.find({}).skip(skipNum).limit(limitNum, function(error, data) {
     helpers.handleReply(error, data, request, reply);
   });
@@ -22,7 +22,8 @@ function getPostnummerByPostnummer(request, reply) {
 }
 
 function searchPostnummer(request, reply) {
-  zipcodes.find({'$text':{'$search':request.params.searchText}}, function(error, data) {
+  zipcodes.find({'$text':{'$search':request.params.searchText}},
+    function(error, data) {
     helpers.handleReply(error, data, request, reply);
   });
 }
@@ -42,10 +43,11 @@ function getPostnummerByPoststed(request, reply) {
 }
 
 function getPostnummerByKategori(request, reply) {
-  var skipNum = request.query.skip ? parseInt(request.query.skip, 10):0;
-  var limitNum = request.query.limit ? parseInt(request.query.limit, 10):20;
+  var skipNum = request.query.skip ? parseInt(request.query.skip, 10) : 0;
+  var limitNum = request.query.limit ? parseInt(request.query.limit, 10) : 20;
   var kategori = request.params.kategori.toUpperCase();
-  zipcodes.find({'Kategori':kategori}).skip(skipNum).limit(limitNum, function(error, data) {
+  zipcodes.find({'Kategori':kategori}).skip(skipNum).limit(limitNum,
+    function(error, data) {
     helpers.handleReply(error, data, request, reply);
   });
 }

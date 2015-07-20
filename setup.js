@@ -19,7 +19,8 @@ function areWeDoneYet() {
   }
 }
 
-zipcodes.ensureIndex(textIndexFields, {"default_language": "nb"}, function(error, data){
+zipcodes.ensureIndex(
+  textIndexFields, {'default_language': 'nb'}, function(error, data) {
   if (error) {
     console.error(error);
   } else {

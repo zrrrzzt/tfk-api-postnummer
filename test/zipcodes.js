@@ -1,6 +1,5 @@
 'use strict';
 
-var mongojs = require('mongojs');
 var wreck = require('supertest');
 var server = require('../server');
 var config = require('../config');

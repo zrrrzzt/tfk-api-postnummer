@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-var handlers = require('../handlers');
+var handlers = require('../handlers')
 var routes = [
   {
     method: 'GET',
@@ -32,6 +32,6 @@ var routes = [
     path: '/postnummer/kategori/{kategori}',
     handler: handlers.getPostnummerByKategori
   }
-];
+]
 
-module.exports = routes;
+module.exports = routes

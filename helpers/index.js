@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-function handleReply(err, data, request, reply) {
+function handleReply (err, data, request, reply) {
   if (err) {
-    reply(err);
+    reply(err)
   } else {
-    reply(data);
+    reply(data)
   }
 }
 
-module.exports.handleReply = handleReply;
+module.exports.handleReply = handleReply

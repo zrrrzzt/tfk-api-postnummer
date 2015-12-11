@@ -1,0 +1,11 @@
+db.zipcodes.ensureIndex({'Poststed': 'text', 'Kommunenavn':'text'}, {'default_language': 'nb'})
+
+db.zipcodes.ensureIndex({'Poststed': 1})
+
+db.zipcodes.ensureIndex({'Kommunenavn': 1})
+
+db.zipcodes.ensureIndex({'Postnummer': 1})
+
+db.zipcodes.ensureIndex({'Kommunenummer': 1})
+
+db.zipcodes.ensureIndex({'Kategori': 1})

@@ -1,0 +1,16 @@
+apiserver:
+  image: zrrrzzt/tfk-api-postnummer
+  environment:
+    SERVER_PORT: 3000
+    DB: mongodb://mongodb_1:27017/tfk
+  ports:
+      - "3000:3000"
+  links:
+    - mongodb
+mongodb:
+  image: mongo
+  environment:
+    DB: tfk
+    COLLECTION: zipcodes
+  ports:
+   - "27017:27017"

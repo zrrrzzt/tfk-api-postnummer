@@ -1,6 +1,6 @@
 {
   "name": "tfk-api-postnummer",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "zipcode API for tfk",
   "license": "MIT",
   "private": true,

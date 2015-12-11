@@ -11,6 +11,8 @@ Use it as standalone server or hapi-plugin.
 
 You'll need to have an instance of MongoDB running. Configure the connection in /config.
 
+An alternative is to use Docker and/or docker-compose.
+
 ## Installation
 
 From GitHub
@@ -163,4 +165,21 @@ $ mongo 192.168.99.100:27017/tfk config/mongodb.indexes
 Start the container
 ```sh
 $ docker run -d -p 3000:3000 --name zipcodes tfk-api-postnummer
+```
+
+## Docker-compose
+Probably the simplest version
+
+```sh
+$ docker-compose up
+```
+
+Import data
+```sh
+$ mongoimport -h 192.168.99.100:27017 -d tfk -c zipcodes data/zipcodes.json --jsonArray
+```
+
+Create indexes
+```sh
+$ mongo 192.168.99.100:27017/tfk config/mongodb.indexes
 ```

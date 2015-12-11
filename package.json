@@ -1,6 +1,6 @@
 {
   "name": "tfk-api-postnummer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "zipcode API for tfk",
   "license": "MIT",
   "private": true,
@@ -26,6 +26,9 @@
     "hapi",
     "zipcodes"
   ],
+  "standard": {
+    "globals": ["describe", "before", "after", "it"]
+  },
   "repository": {
     "type": "git",
     "url": "http://github.com/zrrrzzt/tfk-api-postnummer.git"

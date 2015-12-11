@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/zrrrzzt/tfk-api-postnummer.svg?branch=master)](https://travis-ci.org/zrrrzzt/tfk-api-postnummer)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 # tfk-api-postnummer
 zipcodes API for tfk.
 
@@ -7,6 +9,8 @@ Datasource is the [zipcode registry]('http://www.bring.no/radgivning/sende-noe/a
 
 Use it as standalone server or hapi-plugin.
 
+You'll need to have an instance of MongoDB running. Configure the connection in /config.
+
 ## Installation
 
 From GitHub
@@ -15,18 +19,20 @@ From GitHub
 $ git clone git@github.com:zrrrzzt/tfk-api-postnummer.git
 ```
 
-You'll need to have an instance of MongoDB running. Configure the connection in /config.
-
-Run the import script to get the zipcodedata in the database.
-
-```sh
-$ npm run import
-```
-
-Finally the setup script to install dependencies and configuring the indexes for the database.
+Run the setup script to install dependencies.
 
 ```sh
 $ npm run setup
+```
+
+Import data
+```sh
+$ mongoimport -h <mongodbserver:port> -d tfk -c zipcodes data/zipcodes.json --jsonArray
+```
+
+Create indexes
+```sh
+$ mongo <mongodbserver:port>/tfk config/mongodb.indexes
 ```
 
 ## Running the server
@@ -96,6 +102,14 @@ Search for zipcodes in Kommunenavn and Poststed
 /postnummer/search/notodden
 ```
 
+**/postnummer/kommunenummer/{kommunenummer}**
+
+List zipcodes by Kommunenumber
+
+```
+/postnummer/kommunenavn/0807
+```
+
 **/postnummer/kommunenavn/{kommunenavn}**
 
 List zipcodes by Kommunenavn
@@ -132,7 +146,7 @@ $ docker run -d -p 27017:27017 --name mongodb mongo
 
 Import data
 ```sh
-$ mongoimport -h 192.168.99.100:27017 -d tfk -c zipcodes  --type csv --headerline --file test/data/zipcodes.csv
+$ mongoimport -h 192.168.99.100:27017 -d tfk -c zipcodes data/zipcodes.json --jsonArray
 ```
 
 Create indexes

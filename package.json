@@ -14,10 +14,12 @@
     "node": ">=0.12.0"
   },
   "scripts": {
+    "coverage": "tap test/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
     "setup": "npm install && node setup.js",
     "start": "node standalone.js",
     "test": "standard && tap --reporter=spec test/*.js",
-    "import": "mongoimport -d tfk -c zipcodes  --type csv --headerline --file test/data/zipcodes.csv"
+    "update": "node utils/getUpdatedData.js"
   },
   "keywords": [
     "Telemark fylkeskommune",
@@ -34,8 +36,12 @@
     "url": "http://github.com/zrrrzzt/tfk-api-postnummer/issues"
   },
   "devDependencies": {
+    "coveralls": "^2.11.6",
+    "iconv-lite": "^0.4.13",
+    "path": "^0.12.7",
     "standard": "^5.4.1",
-    "tap": "^2.3.1"
+    "tap": "^2.3.1",
+    "wreck": "^7.0.0"
   },
   "dependencies": {
     "hapi": "^8.4.0",

@@ -14,8 +14,15 @@ function getPostnummer (request, reply) {
 }
 
 function getPostnummerByPostnummer (request, reply) {
-  var postnummer = parseInt(request.params.postnummer, 10)
+  var postnummer = request.params.postnummer
   zipcodes.find({'Postnummer': postnummer}, function (error, data) {
+    reply(error || data)
+  })
+}
+
+function getPostnummerByKommunenummer (request, reply) {
+  var kommunenummer = request.params.kommunenummer
+  zipcodes.find({'Kommunenummer': kommunenummer}, function (error, data) {
     reply(error || data)
   })
 }
@@ -56,6 +63,8 @@ module.exports.getPostnummer = getPostnummer
 module.exports.searchPostnummer = searchPostnummer
 
 module.exports.getPostnummerByPostnummer = getPostnummerByPostnummer
+
+module.exports.getPostnummerByKommunenummer = getPostnummerByKommunenummer
 
 module.exports.getPostnummerByKommunenavn = getPostnummerByKommunenavn
 

@@ -19,6 +19,11 @@ var routes = [
   },
   {
     method: 'GET',
+    path: '/postnummer/kommunenummer/{kommunenummer}',
+    handler: handlers.getPostnummerByKommunenummer
+  },
+  {
+    method: 'GET',
     path: '/postnummer/kommunenavn/{kommunenavn}',
     handler: handlers.getPostnummerByKommunenavn
   },

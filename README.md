@@ -138,6 +138,12 @@ Use skip and limit for pagination
 
 ## Docker
 
+Build the image
+
+```sh
+$ docker build -t tfk-api-postnummer .
+```
+
 Spin up a MongoDB container
 
 ```sh
@@ -152,4 +158,9 @@ $ mongoimport -h 192.168.99.100:27017 -d tfk -c zipcodes data/zipcodes.json --js
 Create indexes
 ```sh
 $ mongo 192.168.99.100:27017/tfk config/mongodb.indexes
+```
+
+Start the container
+```sh
+$ docker run -d -p 3000:3000 --name zipcodes tfk-api-postnummer
 ```

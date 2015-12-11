@@ -121,3 +121,21 @@ Use skip and limit for pagination
 ```
 /postnummer/kategori/G
 ```
+
+## Docker
+
+Spin up a MongoDB container
+
+```sh
+$ docker run -d -p 27017:27017 --name mongodb mongo
+```
+
+Import data
+```sh
+$ mongoimport -h 192.168.99.100:27017 -d tfk -c zipcodes  --type csv --headerline --file test/data/zipcodes.csv
+```
+
+Create indexes
+```sh
+$ mongo 192.168.99.100:27017/tfk config/mongodb.indexes
+```

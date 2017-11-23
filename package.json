@@ -44,7 +44,7 @@
     "wreck": "^14.0.0"
   },
   "dependencies": {
-    "hapi": "^16.0.2",
+    "hapi": "^17.1.0",
     "mongojs": "^2.1.0"
   }
 }

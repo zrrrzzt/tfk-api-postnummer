@@ -36,15 +36,15 @@
     "url": "http://github.com/zrrrzzt/tfk-api-postnummer/issues"
   },
   "devDependencies": {
-    "coveralls": "^3.0.0",
-    "iconv-lite": "^0.4.13",
-    "path": "^0.12.7",
-    "standard": "^11.0.0",
-    "tap": "^11.0.0",
-    "wreck": "^14.0.0"
+    "coveralls": "3.0.0",
+    "iconv-lite": "0.4.21",
+    "path": "0.12.7",
+    "standard": "11.0.1",
+    "tap": "11.1.4",
+    "wreck": "14.0.2"
   },
   "dependencies": {
-    "hapi": "^16.0.2",
-    "mongojs": "^2.1.0"
+    "hapi": "16.6.3",
+    "mongojs": "2.5.0"
   }
 }

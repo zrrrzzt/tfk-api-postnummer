@@ -45,6 +45,6 @@
   },
   "dependencies": {
     "hapi": "16.6.3",
-    "mongojs": "2.5.0"
+    "mongojs": "2.6.0"
   }
 }

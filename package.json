@@ -40,7 +40,7 @@
     "iconv-lite": "0.4.21",
     "path": "0.12.7",
     "standard": "11.0.1",
-    "tap": "11.1.4",
+    "tap": "11.1.5",
     "wreck": "14.0.2"
   },
   "dependencies": {

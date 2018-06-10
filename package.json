@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "coveralls": "3.0.1",
-    "iconv-lite": "0.4.21",
+    "iconv-lite": "0.4.23",
     "path": "0.12.7",
     "standard": "11.0.1",
     "tap": "11.1.4",

@@ -1,5 +1,5 @@
 apiserver:
-  image: zrrrzzt/tfk-api-postnummer:latest@sha256:3b0241bac1fdc56bb99b1e97d75a7fd9252c37f5706fd4dd8778df1b4cc79e02
+  image: zrrrzzt/tfk-api-postnummer:latest@sha256:0a307536c0693028ddf55e5d80d4f9d28f4ab8e68408be2c8016e95adbc9e608
   environment:
     SERVER_PORT: 3000
     DB: mongodb://mongodb_1:27017/tfk

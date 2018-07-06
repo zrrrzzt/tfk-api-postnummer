@@ -36,7 +36,7 @@
     "url": "http://github.com/zrrrzzt/tfk-api-postnummer/issues"
   },
   "devDependencies": {
-    "coveralls": "3.0.1",
+    "coveralls": "3.0.2",
     "iconv-lite": "0.4.23",
     "path": "0.12.7",
     "standard": "11.0.1",

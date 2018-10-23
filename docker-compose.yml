@@ -8,7 +8,7 @@ apiserver:
   links:
     - mongodb
 mongodb:
-  image: mongo:latest@sha256:bc93023d57ff1d0b3dcfb81ee0ce9455c246f2ed5248a7c5a468e9dd44ce7955
+  image: mongo:latest@sha256:c4e8225e68348b18283cf5c523f99122426fe1e15d883104e24c61bedb4b2ca7
   environment:
     DB: tfk
     COLLECTION: zipcodes

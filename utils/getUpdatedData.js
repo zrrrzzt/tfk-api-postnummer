@@ -1,17 +1,13 @@
-'use strict'
-
 // Some snippets from https://github.com/sindresorhus/norway-postal-codes
 
-var fs = require('fs')
-var path = require('path')
-var wreck = require('wreck')
-var iconv = require('iconv-lite')
-var config = require('../config')
+const fs = require('fs')
+const path = require('path')
+const wreck = require('wreck')
+const iconv = require('iconv-lite')
+const { ZIPCODE_URL } = require('../config')
+const OUTPUT_DIR = 'data'
 
-var ZIPCODE_URL = config.ZIPCODE_URL
-var OUTPUT_DIR = 'data'
-
-var HEADERS = [
+const HEADERS = [
   'Postnummer',
   'Poststed',
   'Kommunenummer',
@@ -42,7 +38,7 @@ function convert (data) {
   write('zipcodes.json', JSON.stringify(list, null, 2))
 }
 
-wreck.get(ZIPCODE_URL, {encoding: null}, function (error, response, payload) {
+wreck.get(ZIPCODE_URL, { encoding: null }, function (error, response, payload) {
   if (error) {
     throw error
   }

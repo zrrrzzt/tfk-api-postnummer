@@ -15,20 +15,20 @@ function getPostnummer (request, reply) {
 
 function getPostnummerByPostnummer (request, reply) {
   var postnummer = request.params.postnummer
-  zipcodes.find({'Postnummer': postnummer}, function (error, data) {
+  zipcodes.find({ 'Postnummer': postnummer }, function (error, data) {
     reply(error || data)
   })
 }
 
 function getPostnummerByKommunenummer (request, reply) {
   var kommunenummer = request.params.kommunenummer
-  zipcodes.find({'Kommunenummer': kommunenummer}, function (error, data) {
+  zipcodes.find({ 'Kommunenummer': kommunenummer }, function (error, data) {
     reply(error || data)
   })
 }
 
 function searchPostnummer (request, reply) {
-  zipcodes.find({'$text': {'$search': request.params.searchText}},
+  zipcodes.find({ '$text': { '$search': request.params.searchText } },
     function (error, data) {
       reply(error || data)
     })
@@ -36,14 +36,14 @@ function searchPostnummer (request, reply) {
 
 function getPostnummerByKommunenavn (request, reply) {
   var kommunenavn = request.params.kommunenavn.toUpperCase()
-  zipcodes.find({'Kommunenavn': kommunenavn}, function (error, data) {
+  zipcodes.find({ 'Kommunenavn': kommunenavn }, function (error, data) {
     reply(error || data)
   })
 }
 
 function getPostnummerByPoststed (request, reply) {
   var poststed = request.params.poststed.toUpperCase()
-  zipcodes.find({'Poststed': poststed}, function (error, data) {
+  zipcodes.find({ 'Poststed': poststed }, function (error, data) {
     reply(error || data)
   })
 }
@@ -52,7 +52,7 @@ function getPostnummerByKategori (request, reply) {
   var skipNum = request.query.skip ? parseInt(request.query.skip, 10) : 0
   var limitNum = request.query.limit ? parseInt(request.query.limit, 10) : 20
   var kategori = request.params.kategori.toUpperCase()
-  zipcodes.find({'Kategori': kategori}).skip(skipNum).limit(limitNum,
+  zipcodes.find({ 'Kategori': kategori }).skip(skipNum).limit(limitNum,
     function (error, data) {
       reply(error || data)
     })

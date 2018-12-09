@@ -1,28 +1,11 @@
-###########################################################
-#
-# Dockerfile for tfk-api-postnummer
-#
-###########################################################
+FROM mhart/alpine-node:10 as base
+WORKDIR /usr/src
+COPY package.json package-lock.json /usr/src/
+RUN npm i --production
+COPY . .
 
-# Setting the base to nodejs 4.2
-FROM node:4.9-slim
-
-# Maintainer
-MAINTAINER Geir Gåsodden
-
-#### Begin setup ####
-
-# Bundle app source
-COPY . /src
-
-# Change working directory
-WORKDIR "/src"
-
-# Install dependencies
-RUN npm install
-
-# Expose 3000
+FROM mhart/alpine-node:base-10
+WORKDIR /usr/src
+COPY --from=base /usr/src .
 EXPOSE 3000
-
-# Startup
-ENTRYPOINT node standalone.js
+CMD ["node", "standalone.js"]

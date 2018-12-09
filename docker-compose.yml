@@ -1,5 +1,5 @@
 apiserver:
-  image: zrrrzzt/tfk-api-postnummer:latest@sha256:043c9c0d8a26b9327e5d1c341f5254cacb699a34a923b4145895faf5fbf02b75
+  image: zrrrzzt/tfk-api-postnummer:3.0.0
   environment:
     SERVER_PORT: 3000
     DB: mongodb://mongodb_1:27017/tfk
@@ -8,7 +8,7 @@ apiserver:
   links:
     - mongodb
 mongodb:
-  image: mongo:latest@sha256:0823cc2000223420f88b20d5e19e6bc252fa328c30d8261070e4645b02183c6a
+  image: mongo:3.4.4
   environment:
     DB: tfk
     COLLECTION: zipcodes

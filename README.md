@@ -5,7 +5,7 @@ zipcodes API for tfk.
 
 This solutions contains all zipcodes for Norway.
 
-Datasource is the [zipcode registry]('http://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/_attachment/615732?_download=true&_ts=148c63b0dc0') from [Bring]('http://www.bring.no/').
+Datasource is the [zipcode registry]('https://www.bring.no/postnummerregister-ansi.txt') from [Bring]('http://www.bring.no/').
 
 Use it as standalone server or hapi-plugin.
 
@@ -21,10 +21,10 @@ From GitHub
 $ git clone git@github.com:zrrrzzt/tfk-api-postnummer.git
 ```
 
-Run the setup script to install dependencies.
+Install dependencies.
 
 ```sh
-$ npm run setup
+$ npm install
 ```
 
 Import data
@@ -48,17 +48,15 @@ $ npm run start
 As hapi plugin
 
 ```javascript
-'use strict';
-
-var Hapi = require('hapi');
-var config = require('./config');
-var server = new Hapi.Server();
-var zipcodeService = require('./index');
+const Hapi = require('hapi');
+const config = require('./config');
+const server = new Hapi.Server();
+const zipcodeService = require('./index');
 
 server.connection({
   port:config.SERVER_PORT,
-  routes:{cors:{credentials:true}}
-});
+  routes:{cors: { credentials:true }}
+})
 
 server.register([
   {
@@ -67,13 +65,13 @@ server.register([
   }
 ], function(err) {
   if (err) {
-    console.error('Failed to load a plugin:', err);
+    console.error('Failed to load a plugin:', err)
   }
-});
+})
 
 server.start(function() {
-  console.log('Server running at:', server.info.uri);
-});
+  console.log('Server running at:', server.info.uri)
+})
 ```
 
 ## Routes
@@ -154,12 +152,12 @@ $ docker run -d -p 27017:27017 --name mongodb mongo
 
 Import data
 ```sh
-$ mongoimport -h 192.168.99.100:27017 -d tfk -c zipcodes data/zipcodes.json --jsonArray
+$ mongoimport -h localhost:27017 -d tfk -c zipcodes data/zipcodes.json --jsonArray
 ```
 
 Create indexes
 ```sh
-$ mongo 192.168.99.100:27017/tfk config/mongodb.indexes
+$ mongo localhost:27017/tfk config/mongodb.indexes
 ```
 
 Start the container
@@ -168,6 +166,7 @@ $ docker run -d -p 3000:3000 --name zipcodes tfk-api-postnummer
 ```
 
 ## Docker-compose
+
 Probably the simplest version
 
 ```sh
@@ -183,3 +182,7 @@ Create indexes
 ```sh
 $ mongo 192.168.99.100:27017/tfk config/mongodb.indexes
 ```
+
+# Licens
+
+[MIT](LICENSE)

@@ -8,7 +8,7 @@ apiserver:
   links:
     - mongodb
 mongodb:
-  image: mongo:5.0.6
+  image: mongo:6.0.9
   environment:
     DB: tfk
     COLLECTION: zipcodes
